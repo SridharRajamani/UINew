@@ -78,16 +78,15 @@ import React, { useState } from 'react';
 import inventoryImage from '../Images/inventory.svg';
 import billingImage from '../Images/billing.svg';
 import accountingImage from '../Images/accounting.svg'; 
-import Billing from "../Videos/billing.mp4"
-import inventory from "../Videos/inventory.mp4"
+// import Billing from "../Videos/billing.mp4"
+// import inventory from "../Videos/inventory.mp4"
 import './Offerings.css';
 
 const offeringsData = [
   {
     id: 1,
     title: 'Billing/POS',
-    image: Billing,
-    type: 'video',
+    image: 'https://img.freepik.com/free-photo/close-up-baker-with-machine_23-2149233717.jpg?uid=R2740650&ga=GA1.1.1997829733.1728553786&semt=ais_items_boosted&w=740', 
     alt: ' Billing/POS',
 
     position: 'right',
@@ -104,10 +103,9 @@ const offeringsData = [
   },
   {
     id: 3, 
-    image: inventory,
+    image: 'https://img.freepik.com/free-photo/medium-shot-woman-with-tablet_23-2148902535.jpg?uid=R2740650&ga=GA1.1.1997829733.1728553786&semt=ais_items_boosted&w=740',
     title: ' Inventory Control',
-     position: 'right',
-       type: 'video',
+     position: 'right', 
     alt: 'Inventory/Warehouse Management',
 
   },
