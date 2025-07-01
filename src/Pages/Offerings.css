@@ -1,0 +1,209 @@
+body.light-theme .offerings-wrapper, 
+body.light-theme .offerings-wrapper *,
+body.light-theme .offerings-wrapper .offering-title,
+body.light-theme .offerings-wrapper .section-heading {
+  color: #111 !important;
+}
+body.dark-theme .offerings-wrapper {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+body.light-theme .offering-title {
+  color: #111 !important;
+}
+body.dark-theme .offering-title {
+  color: #fff !important;
+}
+
+body.light-theme .panel .InfoTabs *,
+body.light-theme .panel .InfoTabs {
+  color: #111 !important;
+}
+body.dark-theme .panel .InfoTabs *,
+body.dark-theme .panel .InfoTabs {
+  color: #fff !important;
+}
+body.light-theme .panel .InfoTabs span[style*='border-bottom: 2.5px solid'],
+body.light-theme .panel .InfoTabs span.active {
+  color: #111 !important;
+  border-bottom: 2.5px solid #111 !important;
+}
+body.dark-theme .panel .InfoTabs span[style*='border-bottom: 2.5px solid'],
+body.dark-theme .panel .InfoTabs span.active {
+  color: #fff !important;
+  border-bottom: 2.5px solid #fff !important;
+}
+
+.offerings-wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+  z-index: 6;
+  flex-direction: column;
+  display: flex;
+}
+
+.section-heading {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff; 
+  
+  letter-spacing: -0px !important;
+  position: relative;
+  padding-bottom: 5rem;
+  top: 0;
+  z-index: 2;
+  text-align: center; 
+}
+
+
+.background-fade {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 0;
+  filter: blur(30px);
+}
+
+.background-fade.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.offerings-list {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  font-size:60px;
+  flex-direction: column;
+  align-items: center; 
+
+  gap: 10px;
+}
+
+.offering-item {
+  position: relative;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.offering-item.dimmed {
+  opacity: 0.4;
+}
+
+.offering-title {
+  font-size: 110px;
+  font-weight: 420;
+  color: white;
+  line-height: 1;
+  font-family: "inter";
+  transition: transform 0.3s ease;
+  letter-spacing: -8px;
+}
+
+.hover-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.background-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(30px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+}
+
+.background-fade.show .background-video {
+  opacity: 1;
+}
+.offerings-list {
+  position: relative;
+  z-index: 2;
+}
+
+
+.hover-preview {
+  position: absolute;
+  top: 50%;
+  left: auto;
+  right: auto;
+  width: 320px;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+  transition: none !important;
+  transform: translateY(-50%) scale(1) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.hover-preview.visible,
+.offering-item:hover .hover-preview {
+  opacity: 1;
+  transform: translateY(-50%) scale(1) !important;
+  pointer-events: auto;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+.hover-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hover-preview.visible img {
+  transform: scale(1);
+  opacity: 1;
+}
+
+
+/* Direction classes */
+.hover-preview.right {
+  left: calc(100% + 30px);
+}
+
+.hover-preview.left {
+  right: calc(100% + 30px);
+}
+
+.blur-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(30px) brightness(0.5);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Remove old ::after overlay if present */
+.offerings-wrapper::after {
+  display: none !important;
+}
+
+.offerings-list,
+.section-heading {
+  position: relative;
+  z-index: 1;
+}
