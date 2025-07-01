@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './NavBar.css';
 import PozoLogo from '../Images/PozoLogo1.svg';
+<<<<<<< HEAD
 import PozoLogoDark from '../Images/PozoLogo.svg';
 import { RiStore2Line } from "react-icons/ri";
 
@@ -14,14 +15,25 @@ const NavBar = ({ theme, setTheme }) => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+=======
+import { RiStore2Line } from "react-icons/ri";
+
+const NavBar = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
   const toggleDropdown = () => {
     setIsDropdownOpen(prev => !prev);
   };
 
+<<<<<<< HEAD
   const handleThemeToggle = () => {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
   };
 
+=======
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -42,6 +54,7 @@ const NavBar = ({ theme, setTheme }) => {
 
   return (
     <>
+<<<<<<< HEAD
     <div className="navbar-island" style={{ 
       background: theme === 'light' ? '#fff' : 'rgba(0,0,0,0.7)',
       color: theme === 'light' ? '#111' : '#fff',
@@ -51,10 +64,17 @@ const NavBar = ({ theme, setTheme }) => {
       <div className="island-content" style={{ color: theme === 'light' ? '#111' : '#fff' }}>
         {/* Logo */}
         <img src={theme === 'light' ? PozoLogo : PozoLogoDark} alt="Pozo Logo" className="pozo-logo" />
+=======
+    <div className="navbar-island">
+      <div className="island-content">
+        {/* Logo */}
+        <img src={PozoLogo} alt="Pozo Logo" className="pozo-logo" />
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
 
         {/* Navigation Links */}
         <div className="nav-links">
           <div className="dropdown" ref={dropdownRef}>
+<<<<<<< HEAD
             <span onClick={toggleDropdown} className={isDropdownOpen ? 'active' : ''} style={{ color: theme === 'light' ? '#111' : '#fff' }}>Industries <i className={`arrow-icon ${isDropdownOpen ? 'open' : ''}`}></i></span>
          
           </div>
@@ -72,6 +92,19 @@ const NavBar = ({ theme, setTheme }) => {
               {theme === 'dark' ? '🌙 Dark' : '☀️ Light'}
             </label>
           </span>
+=======
+            <span onClick={toggleDropdown} className={isDropdownOpen ? 'active' : ''}>Industries <i className={`arrow-icon ${isDropdownOpen ? 'open' : ''}`}></i></span>
+         
+          </div>
+          <span>Offerings</span>
+          <span>Testimonials</span>
+        </div>
+
+        {/* Right-aligned items */}
+        <div className="right-items">
+          <span> <RiStore2Line/>  Pozo Store</span>
+          <span onClick={() => window.location.href = '/signin'} style={{ cursor: 'pointer' }}>Sign In</span>
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
         </div>
          
       </div>

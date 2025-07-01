@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body.light-theme .offerings-wrapper, 
 body.light-theme .offerings-wrapper *,
 body.light-theme .offerings-wrapper .offering-title,
@@ -34,6 +35,9 @@ body.dark-theme .panel .InfoTabs span.active {
   border-bottom: 2.5px solid #fff !important;
 }
 
+=======
+ 
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
 .offerings-wrapper {
   position: relative;
   min-height: 100vh;
@@ -43,9 +47,16 @@ body.dark-theme .panel .InfoTabs span.active {
   background-color: #000;
   overflow: hidden;
   font-family: 'DM Sans', sans-serif;
+<<<<<<< HEAD
   z-index: 6;
   flex-direction: column;
   display: flex;
+=======
+z-index: 6;
+  flex-direction: column;
+  display: flex;
+
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
 }
 
 .section-heading {
@@ -140,8 +151,12 @@ body.dark-theme .panel .InfoTabs span.active {
 .hover-preview {
   position: absolute;
   top: 50%;
+<<<<<<< HEAD
   left: auto;
   right: auto;
+=======
+  transform: translateY(-50%) scale(0.7); /* Start smaller */
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
   width: 320px;
   height: 200px;
   border-radius: 16px;
@@ -149,15 +164,26 @@ body.dark-theme .panel .InfoTabs span.active {
   z-index: 3;
   opacity: 0;
   pointer-events: none;
+<<<<<<< HEAD
   transition: none !important;
   transform: translateY(-50%) scale(1) !important;
+=======
+  transition:
+    opacity 0.6s ease-out,
+   transform 0.6s cubic-bezier(0.22, 1.61, 0.36, 1),
+    box-shadow 0.6s ease-out;
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 .hover-preview.visible,
 .offering-item:hover .hover-preview {
   opacity: 1;
+<<<<<<< HEAD
   transform: translateY(-50%) scale(1) !important;
+=======
+  transform: translateY(-50%) scale(1.2); /* Scale up beyond original size */
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
   pointer-events: auto;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
 }
@@ -184,6 +210,7 @@ body.dark-theme .panel .InfoTabs span.active {
 .hover-preview.left {
   right: calc(100% + 30px);
 }
+<<<<<<< HEAD
 
 .blur-bg-img {
   position: absolute;
@@ -207,3 +234,5 @@ body.dark-theme .panel .InfoTabs span.active {
   position: relative;
   z-index: 1;
 }
+=======
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c

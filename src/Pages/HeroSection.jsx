@@ -35,7 +35,11 @@ import './HeroSection.css';
 import Spline from '@splinetool/react-spline';
 import { useNavigate } from 'react-router-dom';
 
+<<<<<<< HEAD
 function HeroSection({ theme }) {
+=======
+function HeroSection() {
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
   const navigate = useNavigate();
   useEffect(() => {
     const scriptId = 'spline-script';
@@ -50,6 +54,7 @@ function HeroSection({ theme }) {
   }, []);
 
   return (
+<<<<<<< HEAD
     <div
       className="LandigMaster"
       style={{
@@ -63,6 +68,15 @@ function HeroSection({ theme }) {
           <span className="letters">Core-crafted intelligence</span>
         </div>
         <p style={{ color: '#111' }}>Lightweight interface. Heavyweight intelligence</p>
+=======
+    <div className="LandigMaster">
+      <div className="title-section">
+        <div className="head">
+          <span className="letters">Core-crafted intelligence</span>
+        </div>
+        <p>Lightweight interface. Heavyweight intelligence</p>
+        
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
         <button
           className="explore-button"
           onClick={() => window.location.href = '/signin'}
@@ -81,14 +95,25 @@ function HeroSection({ theme }) {
               ></path>
             </svg>
           </div>
+<<<<<<< HEAD
           <span style={{ cursor: 'pointer', color: '#fff' }}>
+=======
+          <span style={{ cursor: 'pointer' }}>
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
             Explore
           </span>
         </button>
       </div>
+<<<<<<< HEAD
       <div style={{ width: '100%', height: '100vh', position: 'absolute', left: '0' }}>
         <spline-viewer url="https://prod.spline.design/hlzbpWnemLgYuOCg/scene.splinecode">
         </spline-viewer>
+=======
+
+      <div style={{ width: '100%', height: '100vh', position: 'absolute', left: '0' }}>
+      <spline-viewer url="https://prod.spline.design/hlzbpWnemLgYuOCg/scene.splinecode">
+     </spline-viewer> 
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
       </div>
     </div>
   );

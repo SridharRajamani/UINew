@@ -5,8 +5,13 @@ body {
 }
 
 .navbar-island {
+<<<<<<< HEAD
   position: fixed;
   top: 0;
+=======
+  position: absolute;
+  top: 20px;
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
   left: 50%;
   width: 60%;
   transform: translateX(-50%);
@@ -19,6 +24,26 @@ body {
   z-index: 1000;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
+=======
+}
+
+.navbar-island {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  opacity: 0;
+  background-color: white;
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
   animation: popIn 0.3s ease-out forwards;
 }
 

@@ -20,9 +20,13 @@
   pointer-events: none; /* So user can click UI elements above */
   overflow: hidden;
 }
+<<<<<<< HEAD
 spline-viewer div[style*="Built with Spline"] {
   display: none !important;
 }
+=======
+
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
 .LandigMaster {
   position: relative;
   overflow: hidden;

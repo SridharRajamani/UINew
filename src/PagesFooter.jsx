@@ -1,6 +1,9 @@
 import React from "react";
 import PozoLogo from './Images/PozoLogo.svg';
+<<<<<<< HEAD
 import PozoLogoLight from './Images/PozoLogo1.svg';
+=======
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
 import { Weight } from "lucide-react";
 import { FaYoutube, FaTwitter, FaInstagram, FaFacebook } from 'react-icons/fa';
 
@@ -51,7 +54,11 @@ const socialLinks = [
   { name: "Facebook", icon: <FaFacebook />, href: "#" },
 ];
 
+<<<<<<< HEAD
 function Footer({ theme }) {
+=======
+function Footer() {
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
   return (
     <>
       <style>{`
@@ -86,8 +93,12 @@ function Footer({ theme }) {
           position: 'relative',
           width: '100%',
           minHeight: 320,
+<<<<<<< HEAD
           background: theme === 'light' ? '#fff' : '#000',
           color: theme === 'light' ? '#111' : '#fff',
+=======
+          background: 'transparent',
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -95,7 +106,10 @@ function Footer({ theme }) {
           zIndex: 1,
           gap:'1rem',
           padding: '132px 0 50px 0',
+<<<<<<< HEAD
           transition: 'background 0.3s, color 0.3s',
+=======
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
         }}
       >
         <h1
@@ -103,12 +117,20 @@ function Footer({ theme }) {
           style={{
             fontSize: '72px', 
             fontWeight:'400',
+<<<<<<< HEAD
             color: theme === 'light' ? '#111' : '#fff',
+=======
+            color: '#fff',
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
             margin: 0,
             marginTop: 16,
             letterSpacing: '-3px',
             textAlign: 'center',
+<<<<<<< HEAD
             textShadow: theme === 'light' ? 'none' : '0 2px 24px rgba(0,0,0,0.18)',
+=======
+            textShadow: '0 2px 24px rgba(0,0,0,0.18)',
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
             pointerEvents: 'auto',
             userSelect: 'text',
             lineHeight: 0.8,
@@ -122,7 +144,11 @@ function Footer({ theme }) {
         <p
           style={{
             fontSize: '15px',
+<<<<<<< HEAD
             color: theme === 'light' ? '#111' : '#e0e0e0',
+=======
+            color: '#e0e0e0',
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
             margin: '10px 0 0 0', 
             textAlign: 'center',
             letterSpacing:'-0px',
@@ -137,6 +163,7 @@ function Footer({ theme }) {
           className="footer-hero-btn"
           style={{
             marginTop: 10,
+<<<<<<< HEAD
             background: theme === 'light' ? '#f5f5f5' : 'rgba(20,20,20,0.92)',
             color: theme === 'light' ? '#111' : '#f5f5f5',
             fontWeight: 500,
@@ -175,6 +202,25 @@ function Footer({ theme }) {
           }}>
             Get Started
           </span>
+=======
+            background: '#fff',
+            color: '#000',
+            fontWeight: 500,
+            fontSize: '1.1rem',
+            border: 'none', 
+            borderRadius: 8,
+            padding: '12px 36px',
+            boxShadow: '0 2px 16px 0 rgba(59,130,246,0.12)',
+            cursor: 'pointer',
+            transition: 'background 0.2s, box-shadow 0.2s',
+            pointerEvents: 'auto',
+            userSelect: 'none',
+            letterSpacing: '-0.01em',
+          }}
+          onClick={() => window.location.href = '#'}
+        >
+          Get Started
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
         </button>
         <div
           style={{
@@ -189,7 +235,11 @@ function Footer({ theme }) {
           }}
         >
           <img
+<<<<<<< HEAD
             src={theme === 'light' ? PozoLogoLight : PozoLogo}
+=======
+            src={PozoLogo}
+>>>>>>> 6994d4e01f8d26285482fac6ffff0c7abc45979c
             alt="Pozo Logo"
             className="footer-hero-logo"
             style={{
