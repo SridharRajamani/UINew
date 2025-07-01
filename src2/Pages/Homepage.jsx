@@ -5,17 +5,18 @@ import HeroSection from "../Pages/HeroSection.jsx"
 import Offerings from "../Pages/Offerings.jsx"
 import InfoTabs from '../components/InfoTabs.jsx';
 import Footer from "../PagesFooter.jsx"
+import { Routes, Route } from "react-router-dom" 
 
-function Homepage({ theme, setTheme }) {
+function Homepage() {
   return (
     <>
-      <Navbar theme={theme} setTheme={setTheme} />
-      <HeroSection theme={theme}  />
-      <Offerings theme={theme} />
-      <GSAPHorizontalScroll theme={theme} /> 
-      <Footer theme={theme}/>      
+      <Navbar />
+      <HeroSection />
+      <Offerings />
+      <GSAPHorizontalScroll /> 
+      <Footer/>      
     </>
   );
 }
 
-export default Homepage;
+export default Homepage; 

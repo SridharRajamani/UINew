@@ -1,25 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './NavBar.css';
 import PozoLogo from '../Images/PozoLogo1.svg';
-import PozoLogoDark from '../Images/PozoLogo.svg';
 import { RiStore2Line } from "react-icons/ri";
 
-const NavBar = ({ theme, setTheme }) => {
+const NavBar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  useEffect(() => {
-    document.body.classList.remove('light-theme', 'dark-theme');
-    document.body.classList.add(`${theme}-theme`);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
   const toggleDropdown = () => {
     setIsDropdownOpen(prev => !prev);
-  };
-
-  const handleThemeToggle = () => {
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
   };
 
   useEffect(() => {
@@ -42,36 +31,25 @@ const NavBar = ({ theme, setTheme }) => {
 
   return (
     <>
-    <div className="navbar-island" style={{ 
-      background: theme === 'light' ? '#fff' : 'rgba(0,0,0,0.7)',
-      color: theme === 'light' ? '#111' : '#fff',
-      backdropFilter: theme === 'dark' ? 'blur(16px)' : 'none',
-      WebkitBackdropFilter: theme === 'dark' ? 'blur(16px)' : 'none',
-    }}>
-      <div className="island-content" style={{ color: theme === 'light' ? '#111' : '#fff' }}>
+    <div className="navbar-island">
+      <div className="island-content">
         {/* Logo */}
-        <img src={theme === 'light' ? PozoLogo : PozoLogoDark} alt="Pozo Logo" className="pozo-logo" />
+        <img src={PozoLogo} alt="Pozo Logo" className="pozo-logo" />
 
         {/* Navigation Links */}
         <div className="nav-links">
           <div className="dropdown" ref={dropdownRef}>
-            <span onClick={toggleDropdown} className={isDropdownOpen ? 'active' : ''} style={{ color: theme === 'light' ? '#111' : '#fff' }}>Industries <i className={`arrow-icon ${isDropdownOpen ? 'open' : ''}`}></i></span>
+            <span onClick={toggleDropdown} className={isDropdownOpen ? 'active' : ''}>Industries <i className={`arrow-icon ${isDropdownOpen ? 'open' : ''}`}></i></span>
          
           </div>
-          <span style={{ color: theme === 'light' ? '#111' : '#fff' }}>Offerings</span>
-          <span style={{ color: theme === 'light' ? '#111' : '#fff' }}>Testimonials</span>
+          <span>Offerings</span>
+          <span>Testimonials</span>
         </div>
 
         {/* Right-aligned items */}
-        <div className="right-items" style={{ color: theme === 'light' ? '#111' : '#fff' }}>
-          <span style={{ color: theme === 'light' ? '#111' : '#fff' }}> <RiStore2Line/>  Pozo Store</span>
-          <span onClick={() => window.location.href = '/signin'} style={{ cursor: 'pointer', color: theme === 'light' ? '#111' : '#fff' }}>Sign In</span>
-          <span style={{ marginLeft: '20px', cursor: 'pointer', color: theme === 'light' ? '#111' : '#fff' }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 500, color: theme === 'light' ? '#111' : '#fff' }}>
-              <input type="checkbox" checked={theme === 'dark'} onChange={handleThemeToggle} style={{ accentColor: '#007bff' }} />
-              {theme === 'dark' ? '🌙 Dark' : '☀️ Light'}
-            </label>
-          </span>
+        <div className="right-items">
+          <span> <RiStore2Line/>  Pozo Store</span>
+          <span onClick={() => window.location.href = '/signin'} style={{ cursor: 'pointer' }}>Sign In</span>
         </div>
          
       </div>

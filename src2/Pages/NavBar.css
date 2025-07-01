@@ -19,6 +19,23 @@ body {
   z-index: 1000;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar-island {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  opacity: 0;
+  background-color: white;
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   animation: popIn 0.3s ease-out forwards;
 }
 
@@ -417,18 +434,4 @@ body {
 
 .right-items span:hover {
   color: #007bff; /* Light blue on hover */
-}
-
-body.light-theme .offerings-wrapper {
-  background-color: #fff !important;
-}
-body.light-theme .offerings-wrapper .offering-title,
-body.light-theme .offerings-wrapper .section-heading,
-body.light-theme .offerings-list,
-body.light-theme .offering-item {
-  color: #111 !important;
-}
-body.light-theme .background-fade,
-body.light-theme .blur-bg-img {
-  display: none !important;
 }

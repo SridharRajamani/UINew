@@ -1,12 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import InfoTabs from './InfoTabs.jsx';
 
-const GSAPHorizontalScroll = ({ theme }) => {
+const GSAPHorizontalScroll = () => {
   const AppsContainerRef = useRef(null);
   const scrollTweenRef = useRef(null);
   const redTweenRef = useRef(null);
   const isInitialized = useRef(false);
-  const [isDetailHovered, setIsDetailHovered] = useState(false);
 
   useEffect(() => {
     // Prevent multiple initializations
@@ -235,19 +234,9 @@ const GSAPHorizontalScroll = ({ theme }) => {
       </div>
 
       <div className="AppsContainer" ref={AppsContainerRef}>
-        {theme === 'dark' && !isDetailHovered && (
-          <img
-            src="https://img.freepik.com/free-photo/close-up-baker-with-machine_23-2149233717.jpg?uid=R2740650&ga=GA1.1.1997829733.1728553786&semt=ais_items_boosted&w=740"
-            alt=""
-            className="apps-blur-bg"
-            aria-hidden="true"
-            draggable="false"
-          />
-        )}
         <div className="panel blue"> 
           <InfoTabs
             heading="Consumer"
-            description="Perfect for retail, food, and service businesses. This software is designed to streamline operations and enhance customer experience for all types of consumer-focused industries."
             tabs={[
               "Retail Store",
               "Electronic Retailer",
@@ -287,17 +276,16 @@ const GSAPHorizontalScroll = ({ theme }) => {
                 "Construction Supplies"
               ]
             ]}
-            onDetailHover={() => setIsDetailHovered(true)}
-            onDetailLeave={() => setIsDetailHovered(false)}
           />
         </div>
 
         <section className="panel red">
           <div>
-            <pre className="code-block"></pre> 
+            <pre className="code-block">
+              
+            </pre> 
             <InfoTabs
               heading="Healthcare & Pharma"
-              description="Ideal for hospitals, clinics, pharmacies, and labs. This software helps manage patient care, inventory, appointments, and healthcare operations efficiently."
               tabs={[
                 "Hospitals & Clinics",
                 "Pharmacies",
@@ -351,18 +339,17 @@ const GSAPHorizontalScroll = ({ theme }) => {
                   "Cybersecurity"
                 ]
               ]}
-              onDetailHover={() => setIsDetailHovered(true)}
-              onDetailLeave={() => setIsDetailHovered(false)}
             />
           </div>
         </section>
 
         <section className="panel gray">
           <div>
-            <pre className="code-block"></pre> 
+            <pre className="code-block">
+ 
+            </pre> 
             <InfoTabs
               heading="Manufacturing"
-              description="Designed for manufacturers to automate production, track inventory, ensure quality, and optimize supply chain processes."
               tabs={[
                 "Automotive",
                 "Textiles",
@@ -416,18 +403,17 @@ const GSAPHorizontalScroll = ({ theme }) => {
                   "Downtime Analysis"
                 ]
               ]}
-              onDetailHover={() => setIsDetailHovered(true)}
-              onDetailLeave={() => setIsDetailHovered(false)}
             />
           </div>
         </section>
 
         <section className="panel purple">
           <div>
-            <pre className="code-block"></pre> 
+            <pre className="code-block">
+ 
+            </pre> 
             <InfoTabs
               heading="Transportation & Logistics"
-              description="Perfect for logistics, fleet, and supply chain management. Streamline deliveries, track assets, and optimize routes with ease."
               tabs={[
                 "Transportation",
                 "Logistics",
@@ -479,18 +465,17 @@ const GSAPHorizontalScroll = ({ theme }) => {
                   "Returns Management"
                 ]
               ]}
-              onDetailHover={() => setIsDetailHovered(true)}
-              onDetailLeave={() => setIsDetailHovered(false)}
             />
           </div>
         </section>
 
         <section className="panel green">
           <div>
-            <pre className="code-block"></pre> 
+            <pre className="code-block">
+ 
+            </pre> 
             <InfoTabs
               heading="Hospitality & Entertainment"
-              description="Tailored for hotels, resorts, event venues, and entertainment businesses. Manage bookings, guest experiences, and operations seamlessly."
               tabs={[
                 "Boating",
                 "Hotels & Resorts",
@@ -545,97 +530,82 @@ const GSAPHorizontalScroll = ({ theme }) => {
                   "Loyalty Rewards"
                 ]
               ]}
-              onDetailHover={() => setIsDetailHovered(true)}
-              onDetailLeave={() => setIsDetailHovered(false)}
             />
           </div>
         </section>
         
       </div>
-      <p
-        className='ClipHead'
-        style={{
-          background: theme === 'light' ? '#fff' : '#000',
-          color: theme === 'light' ? '#111' : '#fff',
-          transition: 'background 0.3s, color 0.3s',
-        }}
-      >
-        Whats? Pozo
-      </p>
+      <p className='ClipHead'>Whats? Pozo</p>
 
 
       {/* that blured background video was here */}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '1rem',
-          position: 'relative',
-          justifyContent: 'center',
-          minHeight: '600px',
-          background: theme === 'light' ? '#fff' : '#000',
-          color: theme === 'light' ? '#111' : '#fff',
-          transition: 'background 0.3s, color 0.3s',
-        }}
-      >
-        {theme === 'dark' && (
-          <video
-            src="https://www.pozo.ai/home/assets/MobileMockup-280b6496.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            aria-hidden="true"
-            tabIndex={-1}
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              filter: 'blur(32px) brightness(0.7)',
-              zIndex: 0,
-              borderRadius: '32px',
-              pointerEvents: 'none',
-              userSelect: 'none',
-            }}
-          />
-        )}
-        <div className="theme-card-bg"
-          style={{
-            background: theme === 'light' ? '#fff' : '#000',
-            color: theme === 'light' ? '#111' : '#fff',
-            borderRadius: '32px',
-            boxShadow: '0 8px 40px 0 rgba(0,0,0,0.08)',
-            padding: '0',
-            position: 'relative',
-            zIndex: 1,
-          }}
-        >
-          <div>
-            {/* Foreground video (sharp) */}
-            <video
-              src="https://www.pozo.ai/home/assets/MobileMockup-280b6496.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              style={{
-                width: '860px',
-                minWidth: '580px',
-                height: 'auto',
-                objectFit: 'cover',
-                borderRadius: '32px',
-                boxShadow: '0 8px 40px 0 rgba(0,0,0,0.25)',
-                position: 'relative',
-                zIndex: 1,
-                backdropFilter: 'blur(0px)',
-              }}
-            >
-              Your browser does not support the video tag.
-            </video>
-          </div>
+      <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '1rem', 
+              position: 'relative', 
+              justifyContent: 'center',
+              minHeight: '600px'
+            }}>
+              
+              {/* Blurred video background */}
+              <video
+                src="https://www.pozo.ai/home/assets/MobileMockup-280b6496.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-hidden="true"
+                tabIndex={-1}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  filter: 'blur(32px) brightness(0.7)',
+                  zIndex: 0,
+                  borderRadius: '32px',
+                  pointerEvents: 'none',
+                  userSelect: 'none',
+                }}
+              />
+              
+      <div className=" ">
+        
+        <div> 
+            {/* <li>The fake-scrolling animation (just the part that's moving the AppsContainer horizontally) must have no easing (<code>ease: "none"</code>).</li>
+            <li>Pinning and snapping won't work on ScrollTriggers with a <code>AppsContainerAnimation</code>.</li>
+            <li>The mapping of scroll position trigger points are based on the trigger element itself not being animated horizontally (inside the AppsContainer). If you need to animate the trigger, you can either wrap it in a &lt;div&gt; and use that as the trigger instead or just factor the trigger's movement into your end position.</li>
+            <li>Requires ScrollTrigger 3.8.0 or later</li> */}
+         
+           
+              {/* Foreground video (sharp) */}
+            
+              <video
+                src="https://www.pozo.ai/home/assets/MobileMockup-280b6496.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                style={{ 
+                  width: '860px',
+                  minWidth: '580px',
+                  height: 'auto',
+                  objectFit: 'cover',
+                  borderRadius: '32px', 
+                  boxShadow: '0 8px 40px 0 rgba(0,0,0,0.25)',
+                  position: 'relative',
+                  zIndex: 1,
+                  backdropFilter: 'blur(0px)', // video itself not blurred, but for context
+                  // Responsive styles (handled in parent or via CSS for real media queries)
+                }}
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            
         </div>
       </div>
     </>

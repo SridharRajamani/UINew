@@ -56,6 +56,7 @@ function HeroSection() {
           <span className="letters">Core-crafted intelligence</span>
         </div>
         <p>Lightweight interface. Heavyweight intelligence</p>
+        
         <button
           className="explore-button"
           onClick={() => window.location.href = '/signin'}
@@ -79,9 +80,10 @@ function HeroSection() {
           </span>
         </button>
       </div>
+
       <div style={{ width: '100%', height: '100vh', position: 'absolute', left: '0' }}>
-        <spline-viewer url="https://prod.spline.design/hlzbpWnemLgYuOCg/scene.splinecode">
-        </spline-viewer>
+      <spline-viewer url="https://prod.spline.design/hlzbpWnemLgYuOCg/scene.splinecode">
+     </spline-viewer> 
       </div>
     </div>
   );

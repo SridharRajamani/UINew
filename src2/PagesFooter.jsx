@@ -1,6 +1,5 @@
 import React from "react";
 import PozoLogo from './Images/PozoLogo.svg';
-import PozoLogoLight from './Images/PozoLogo1.svg';
 import { Weight } from "lucide-react";
 import { FaYoutube, FaTwitter, FaInstagram, FaFacebook } from 'react-icons/fa';
 
@@ -51,7 +50,7 @@ const socialLinks = [
   { name: "Facebook", icon: <FaFacebook />, href: "#" },
 ];
 
-function Footer({ theme }) {
+function Footer() {
   return (
     <>
       <style>{`
@@ -86,8 +85,7 @@ function Footer({ theme }) {
           position: 'relative',
           width: '100%',
           minHeight: 320,
-          background: theme === 'light' ? '#fff' : '#000',
-          color: theme === 'light' ? '#111' : '#fff',
+          background: 'transparent',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -95,7 +93,6 @@ function Footer({ theme }) {
           zIndex: 1,
           gap:'1rem',
           padding: '132px 0 50px 0',
-          transition: 'background 0.3s, color 0.3s',
         }}
       >
         <h1
@@ -103,12 +100,12 @@ function Footer({ theme }) {
           style={{
             fontSize: '72px', 
             fontWeight:'400',
-            color: theme === 'light' ? '#111' : '#fff',
+            color: '#fff',
             margin: 0,
             marginTop: 16,
             letterSpacing: '-3px',
             textAlign: 'center',
-            textShadow: theme === 'light' ? 'none' : '0 2px 24px rgba(0,0,0,0.18)',
+            textShadow: '0 2px 24px rgba(0,0,0,0.18)',
             pointerEvents: 'auto',
             userSelect: 'text',
             lineHeight: 0.8,
@@ -122,7 +119,7 @@ function Footer({ theme }) {
         <p
           style={{
             fontSize: '15px',
-            color: theme === 'light' ? '#111' : '#e0e0e0',
+            color: '#e0e0e0',
             margin: '10px 0 0 0', 
             textAlign: 'center',
             letterSpacing:'-0px',
@@ -137,8 +134,8 @@ function Footer({ theme }) {
           className="footer-hero-btn"
           style={{
             marginTop: 10,
-            background: theme === 'light' ? '#f5f5f5' : 'rgba(20,20,20,0.92)',
-            color: theme === 'light' ? '#111' : '#f5f5f5',
+            background: 'rgba(20,20,20,0.92)',
+            color: '#f5f5f5',
             fontWeight: 500,
             fontSize: '1.08rem',
             border: '1.5px solid #222',
@@ -169,7 +166,7 @@ function Footer({ theme }) {
           <span style={{
             fontSize: '1.08rem',
             fontWeight: 500,
-            color: theme === 'light' ? '#111' : '#f5f5f5',
+            color: '#f5f5f5',
             letterSpacing: '-0.01em',
             whiteSpace: 'nowrap',
           }}>
@@ -189,7 +186,7 @@ function Footer({ theme }) {
           }}
         >
           <img
-            src={theme === 'light' ? PozoLogoLight : PozoLogo}
+            src={PozoLogo}
             alt="Pozo Logo"
             className="footer-hero-logo"
             style={{
@@ -206,7 +203,7 @@ function Footer({ theme }) {
         </div>
         {/* Blurred logo background */}
         <img
-          src={theme === 'light' ? PozoLogoLight : PozoLogo}
+          src={PozoLogo}
           alt="Pozo Logo Blurred"
           className="footer-hero-blur"
           style={{

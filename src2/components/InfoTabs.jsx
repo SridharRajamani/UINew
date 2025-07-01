@@ -397,7 +397,7 @@ const iconSVG = (icon) => (
   </span>
 );
 
-function InfoTabs({ heading = 'Sample Heading', tabs = defaultTabs, details = defaultDetails, onDetailHover, onDetailLeave, description }) {
+function InfoTabs({ heading = 'Sample Heading', tabs = defaultTabs, details = defaultDetails }) {
   const [activeTab, setActiveTab] = useState(0);
   const [hoveredDetail, setHoveredDetail] = useState(null);
   const tabsRef = useRef(null);
@@ -441,7 +441,6 @@ function InfoTabs({ heading = 'Sample Heading', tabs = defaultTabs, details = de
   };
   const iconStyle = { fontSize: '1.5rem', marginLeft: '0.3rem', flexShrink: 0, transition: 'color 0.2s' };
 
-
   const bgImage = hoveredDetail && allDetailsImages[hoveredDetail];
 
   // Blurred background image for all tabs EXCEPT hospitality tabs on hover
@@ -453,63 +452,6 @@ function InfoTabs({ heading = 'Sample Heading', tabs = defaultTabs, details = de
       <style>{`
         html, body { overflow-y: auto; scrollbar-width: none; }
         body::-webkit-scrollbar, html::-webkit-scrollbar { display: none; }
-        .info-tabs-heading {
-          font-size:46px;
-          
-          margin-bottom: 0.5rem;
-          -webkit-text-stroke: 0.2px #222;
-          text-align: left;
-          margin: 0;
-          letter-spacing: -0.3px;
-          line-height: 1.13;
-          word-break: break-word;
-          color: #fff;
-          text-shadow: 0 2px 8px rgba(0,0,0,0.18);
-        }
-        .info-tabs-description {
-          font-size: 16px; 
-          color: #b0b0b0;
-          margin: 0.2rem 0 0.7rem 0; 
-          text-align: left;
-          word-break: break-word; 
-          font-weight:100 !important;
-          max-width: 700px;
-          line-height: 1.4;
-          text-shadow: 0 1px 6px rgba(0,0,0,0.13);
-        }
-        .info-tabs-scroll span {
-          font-size: 13px;
-          min-width: 50px;
-          flex-shrink: 0;
-        }
-        .info-detail-list-scroll {
-          max-height: 260px;
-          overflow-y: auto;
-          padding-right: 4px;
-        }
-        .info-detail-hover {
-          font-size: 13px;
-        }
-        .info-detail-hover div {
-          font-size: 11px;
-        }
-        @media (max-width: 600px) {
-          .info-tabs-heading {
-            font-size: 15px;
-          }
-          .info-tabs-description {
-            font-size: 10px;
-          }
-          .info-tabs-scroll span {
-            font-size: 10px;
-          }
-          .info-detail-hover {
-            font-size: 11px;
-          }
-          .info-detail-hover div {
-            font-size: 9px;
-          }
-        }
       `}</style>
       {bgImage && (
         <div style={{
@@ -526,146 +468,143 @@ function InfoTabs({ heading = 'Sample Heading', tabs = defaultTabs, details = de
           transition: 'opacity 0.3s',
         }} />
       )}
-      <div className="InfoTabs">
-        <div 
-          style={{ 
-            position: 'relative', 
-            zIndex: 1, 
-            padding: '2.5rem 3vw', 
-            width: '100%', 
-            maxWidth: '100vw', 
-            boxSizing: 'border-box', 
-            fontFamily: 'DM Sans, sans-serif', 
-            overflow: 'hidden',
-          }}
-        >
-          <h1 className="info-tabs-heading">{heading}</h1>
-          {description && (
-            <div className="info-tabs-description">{description}</div>
+      <div style={{ position: 'relative', zIndex: 1, padding: '2.5rem 3vw', width: '100%', maxWidth: '100vw', boxSizing: 'border-box', fontFamily: 'DM Sans, sans-serif', overflow: 'hidden' }}>
+        <h1 style={{ fontSize: '36px', fontWeight: 400, marginBottom: '1.5rem', textAlign: 'left', margin: 0, letterSpacing: '-0.5px', lineHeight: 1.15, color: 'white' }}>{heading}</h1>
+        <div style={{ position: 'relative', marginBottom: '2.5rem', marginTop: '2.2rem' }}>
+          {showScroll && (
+            <button onClick={() => scrollTabs(-1)} style={{ position: 'absolute', left: -30, top: 0, bottom: 0, zIndex: 2, background: 'rgba(60,60,60,0.8)', border: 'none', color: 'white', fontSize: '18px', cursor: 'pointer', borderRadius: '50%', width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>&lt;</button>
           )}
-          <div style={{ position: 'relative', marginBottom: '2.5rem', marginTop: '2.2rem' }}>
-            {showScroll && (
-              <button onClick={() => scrollTabs(-1)} style={{ position: 'absolute', left: -30, top: 0, bottom: 0, zIndex: 2, background: 'rgba(60,60,60,0.8)', border: 'none', color: 'white', fontSize: '18px', cursor: 'pointer', borderRadius: '50%', width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>&lt;</button>
-            )}
-            <div
-              ref={tabsRef}
-              style={{
-                display: 'flex',
-                gap: '2.5rem',
-                overflowX: 'auto',
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
-                paddingBottom: 4,
-                scrollBehavior: 'smooth',
-                minHeight: 36,
-              }}
-              className="info-tabs-scroll"
-            >
-              {tabs.map((tab, idx) => (
-                <span
-                  key={tab}
-                  onClick={() => setActiveTab(idx)}
-                  style={{
-                    fontSize: 18, 
-                    padding: '0 8px 8px 8px',
-                    // borderBottom: activeTab === idx
-                    //   ? `2.5px solid ${typeof window !== 'undefined' && document.body.classList.contains('light-theme') ? '#111' : '#fff'}`
-                    //   : 'none',
-                    color: typeof window !== 'undefined' && document.body.classList.contains('light-theme') ? '#111' : '#fff',
-                    cursor: 'pointer',
-                    opacity: activeTab === idx ? 1 : 0.7,
-                    WebkitTextStroke: activeTab === idx
-                      ? (typeof window !== 'undefined' && document.body.classList.contains('light-theme') ? '0.3px #000' : '0px #fff')
-                      : (typeof window !== 'undefined' && document.body.classList.contains('dark-theme') ? '0.3px #000' : '0px #fff'),
-                    transition: 'color 0.2s, border 0.2s, opacity 0.2s',
-                    background: 'none',
-                    outline: 'none',
-                    borderRadius: 0,
-                    marginRight: 0,
-                    marginLeft: 0,
-                  }}
-                >
-                  {tab}
-                </span>
-              ))}
-            </div>
-            {showScroll && (
-              <button onClick={() => scrollTabs(1)} style={{ position: 'absolute', right: -30, top: 0, bottom: 0, zIndex: 2, background: 'rgba(60,60,60,0.8)', border: 'none', color: 'white', fontSize: '18px', cursor: 'pointer', borderRadius: '50%', width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>&gt;</button>
-            )}
-          </div>
           <div
+            ref={tabsRef}
             style={{
               display: 'flex',
-              gap: '4rem',
-              flexWrap: 'nowrap',
-              justifyContent: 'flex-start',
+              gap: '2.5rem',
+              overflowX: 'auto',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              paddingBottom: 4,
+              scrollBehavior: 'smooth',
+              minHeight: 36,
             }}
+            className="info-tabs-scroll"
           >
-            <div style={{ minWidth: 120, flex: 1, textAlign: 'left' }}>
-              <div className="info-detail-list-scroll">
-                {col1.map((item, i) => (
-                  <div
-                    key={i}
-                    className="info-detail-hover"
-                    style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      marginBottom: '1.2rem',
-                      gap: '0.5rem',
-                      borderRadius: '14px',
-                      transition: 'background 0.18s, transform 0.18s',
-                      cursor: 'pointer',
-                      padding: '0.2rem 0.5rem',
-                    }}
-                    onMouseEnter={e => { setHoveredDetail(item); if (onDetailHover) onDetailHover(item); }}
-                    onMouseLeave={e => { setHoveredDetail(null); if (onDetailLeave) onDetailLeave(item); }}
-                  >
-                    {iconSVG(iconMap[item] || fallbackIcon)}
-                    <div>
-                      <div style={{ fontWeight: 500, color: '#fff', fontSize: '1.08rem', marginBottom: 2, transition: 'transform 0.18s' }}>{typeof item === 'string' && item.startsWith('http') ? '' : item}</div>
-                      <div style={{ color: '#b0b0b8', fontSize: '0.97rem', fontWeight: 400, transition: 'transform 0.18s' }}>
-                        {typeof sampleDescriptions[item] === 'string' && sampleDescriptions[item].startsWith('http') ? '' : (sampleDescriptions[item] || '')}
-                      </div>
-                    </div>
+            {tabs.map((tab, idx) => (
+              <span
+                key={tab}
+                onClick={() => setActiveTab(idx)}
+                style={{
+                  fontWeight: 400,
+                  color: activeTab === idx ? 'white' : '#bbbbbb',
+                  borderBottom: activeTab === idx ? '2px solid white' : 'none',
+                  cursor: 'pointer',
+                  fontSize: '16px',
+                  marginBottom: 4,
+                  whiteSpace: 'nowrap',
+                  padding: '0 2px',
+                  letterSpacing: '0.01em',
+                  transition: 'color 0.2s',
+                }}
+              >
+                {tab}
+              </span>
+            ))}
+          </div>
+          {showScroll && (
+            <button onClick={() => scrollTabs(1)} style={{ position: 'absolute', right: -30, top: 0, bottom: 0, zIndex: 2, background: 'rgba(60,60,60,0.8)', border: 'none', color: 'white', fontSize: '18px', cursor: 'pointer', borderRadius: '50%', width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>&gt;</button>
+          )}
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            gap: '4rem',
+            flexWrap: 'nowrap',
+            justifyContent: 'flex-start',
+          }}
+        >
+          <div style={{ minWidth: 120, flex: 1, textAlign: 'left' }}>
+            {col1.map((item, i) => (
+              <div
+                key={i}
+                className="info-detail-hover"
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  marginBottom: '1.2rem',
+                  gap: '0.5rem',
+                  borderRadius: '14px',
+                  transition: 'background 0.18s, transform 0.18s',
+                  cursor: 'pointer',
+                  padding: '0.2rem 0.5rem',
+                }}
+                onMouseEnter={() => setHoveredDetail(item)}
+                onMouseLeave={() => setHoveredDetail(null)}
+              >
+                {iconSVG(iconMap[item] || fallbackIcon)}
+                <div>
+                  <div style={{ fontWeight: 500, color: '#fff', fontSize: '1.08rem', marginBottom: 2, transition: 'transform 0.18s' }}>{typeof item === 'string' && item.startsWith('http') ? '' : item}</div>
+                  <div style={{ color: '#b0b0b8', fontSize: '0.97rem', fontWeight: 400, transition: 'transform 0.18s' }}>
+                    {typeof sampleDescriptions[item] === 'string' && sampleDescriptions[item].startsWith('http') ? '' : (sampleDescriptions[item] || '')}
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
-            <div style={{ minWidth: 120, flex: 1, textAlign: 'left' }}>
-              <div className="info-detail-list-scroll">
-                {col2.map((item, i) => (
-                  <div
-                    key={i}
-                    className="info-detail-hover"
-                    style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      marginBottom: '1.2rem',
-                      gap: '0.5rem',
-                      borderRadius: '14px',
-                      transition: 'background 0.18s, transform 0.18s',
-                      cursor: 'pointer',
-                      padding: '0.2rem 0.5rem',
-                    }}
-                    onMouseEnter={e => { setHoveredDetail(item); if (onDetailHover) onDetailHover(item); }}
-                    onMouseLeave={e => { setHoveredDetail(null); if (onDetailLeave) onDetailLeave(item); }}
-                  >
-                    {iconSVG(iconMap[item] || fallbackIcon)}
-                    <div>
-                      <div style={{ fontWeight: 500, color: '#fff', fontSize: '1.08rem', marginBottom: 2, transition: 'transform 0.18s' }}>{typeof item === 'string' && item.startsWith('http') ? '' : item}</div>
-                      <div style={{ color: '#b0b0b8', fontSize: '0.97rem', fontWeight: 400, transition: 'transform 0.18s' }}>
-                        {typeof sampleDescriptions[item] === 'string' && sampleDescriptions[item].startsWith('http') ? '' : (sampleDescriptions[item] || '')}
-                      </div>
-                    </div>
+            ))}
+          </div>
+          <div style={{ minWidth: 120, flex: 1, textAlign: 'left' }}>
+            {col2.map((item, i) => (
+              <div
+                key={i}
+                className="info-detail-hover"
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  marginBottom: '1.2rem',
+                  gap: '0.5rem',
+                  borderRadius: '14px',
+                  transition: 'background 0.18s, transform 0.18s',
+                  cursor: 'pointer',
+                  padding: '0.2rem 0.5rem',
+                }}
+                onMouseEnter={() => setHoveredDetail(item)}
+                onMouseLeave={() => setHoveredDetail(null)}
+              >
+                {iconSVG(iconMap[item] || fallbackIcon)}
+                <div>
+                  <div style={{ fontWeight: 500, color: '#fff', fontSize: '1.08rem', marginBottom: 2, transition: 'transform 0.18s' }}>{typeof item === 'string' && item.startsWith('http') ? '' : item}</div>
+                  <div style={{ color: '#b0b0b8', fontSize: '0.97rem', fontWeight: 400, transition: 'transform 0.18s' }}>
+                    {typeof sampleDescriptions[item] === 'string' && sampleDescriptions[item].startsWith('http') ? '' : (sampleDescriptions[item] || '')}
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
+        <style>{`
+          .info-tabs-scroll::-webkit-scrollbar { display: none; }
+          .info-detail-hover {
+            will-change: background;
+            transition: background 0.18s;
+          }
+          .info-detail-hover:hover, .info-detail-hover:focus {
+            background: rgba(255,255,255,0.08) !important;
+          }
+          @media (max-width: 900px) {
+            div[style*='display: flex'][style*='gap: 4rem'] {
+              gap: 2rem !important;
+            }
+          }
+          @media (max-width: 600px) {
+            div[style*='display: flex'][style*='gap: 4rem'] {
+              flex-direction: column !important;
+              gap: 1rem !important;
+            }
+            h1 {
+              font-size: 1.4rem !important;
+            }
+          }
+        `}</style>
       </div>
     </>
   );
 }
 
-export default InfoTabs;
+export default InfoTabs; 
